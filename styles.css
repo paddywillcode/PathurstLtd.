@@ -7,28 +7,28 @@ html {
 }
 
 body {
-    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.5rem;
 }
 
 .container {
-    
     width: 100vw;
     height: 100vh;
-   
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: bold;
-    font-size: 20px;
+}
 
-    display: grid;
-
-    /* NB that the columns and central rows are in fractions whereas the header and footer rows and fixed dimensions. This is so only the two middle rows change their height when the browswer is adjusted vertically*/
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 150px 1fr 1fr 1fr 1fr 150px;
-    /* OR you can refactor into cleaner code(rows first, then columns)to grid-template: 50px 1fr 1fr 100px / 1fr 1fr 1fr; */
-
-    gap: 10px;
-    padding: 10px;
-
+.header {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header img {
@@ -37,80 +37,58 @@ body {
     padding: 15px;
 }
 
-.navigation {
-    padding: 15px;
-}
-
-.navigation li {
-    display: inline-block;
-    padding: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-transform: lowercase;
-    text-decoration: none;
-}
-
-.navigation a{
-    text-decoration: none;
-    color: #15173B;
-}
-
-.container div {
-    padding: 10px;
-    /* border: 1px solid black; */
-}
-
-.header {
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-    grid-column-start: 1;
-    grid-column-end: 4;
-
-    border-bottom: #15173B solid 1px;
-    margin-bottom: 15px;
-}
-
 .header span{
     color:#15173B;
     box-shadow: 5px 5px;
 }
 
-.content-large {
-    grid-row-start: 2;
-    grid-row-end: span 2;
+.navigation li {
+    display: inline-block;
+    padding: 10px;
+    text-transform: lowercase;
+    font-family: sans-serif;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #15173B;
+}
+
+.navigation a:hover {
+    opacity: 0.2;
+}
+
+#hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 20px;
+        padding: 20px;
+    }
+
+.large {
+    grid-row-start: 1;
+    grid-row-end: 3;
     grid-column-start: 1;
     grid-column-end: 3;
 }
 
-.content-large img {
+.large img {
     width: 100%;
-    object-fit: fill;
-    max-height: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-
-.content-small-text {
+.green {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
     background-color: #DEF0F0;
+    padding: 50px;
 }
 
-.content-small-text h1 {
-    color: #15173B;
-    margin: 5%;
-    font-size: 3rem;
-}
-
-.content-small-text p {
-    color: #15173B;
-    font-family: sans-serif;
-    font-weight: lighter;
-    margin: 5%;
-    font-size: 1.8rem;
-}
-
-.content-small-text button {
-    margin: 0 5% 5% 5%;
+.green button {
     border-radius: 10px;
     padding: 15px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -123,28 +101,19 @@ body {
     box-shadow: 5px 5px black;
 }
 
-.content-small-text-2 {
+.white {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
     background-color: white;
     border: solid 1px #15173B;
     border-top: black double;
+    padding: 50px;
 }
 
-.content-small-text-2 h2 {
-    color: #15173B;
-    margin: 5%;
-    font-size: 2rem;
-}
-
-.content-small-text-2 p {
-    color: #15173B;
-    margin: 5%;
-    font-family: sans-serif;
-    font-weight: lighter;
-    font-size: 1.8rem;
-}
-
-.content-small-text-2 button {
-    margin: 0 5% 5% 5%;
+.white button {
+    
     border-radius: 10px;
     padding: 15px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -157,81 +126,68 @@ body {
     box-shadow: 5px 5px black;
 }
 
-.read {
-    background-color: lightpink;
-    
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 4;
-    grid-row-end: 5;
-    
-    margin: 10px;
-}
-
-
-.read h2 {
-    color: #000000;
-    font-size: 3rem;
-    padding: 10px;
-    margin: 5%;
-}
-
-.read p {
-    color:#15173b;
-    padding: 10px;
-    margin: 5%;
-    font-size: 2rem;
-}
-
-.read img {
-    height: 40%;
-    padding: 10px;
-    margin: 10px;
-    
-}
-
-
-.isolated-image {
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 4;
-    grid-row-end: 6;
+.blog-cta {
     height: 400px;
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 30px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+    padding: 20px;
 }
 
-.isolated-image img {
-    object-fit: cover;
+.pink {
+    background-color: pink;
+    padding: 50px;
+    width: 100%;
     height: 100%;
-    max-width: 100%;
+    align-items: center;
 }
+
+.pink h3 {
+    margin-top: 5px;
+}
+
+.blog-cta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+button {
+    border: 1px solid black;
+    color: black;
+    padding: 10px 25px;
+    border-radius: 15px;
+    text-decoration: none;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    background-color: transparent;
+}
+
+.pink button:hover {
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+}
+
 
 .footer {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 5;
-    grid-row-end: 6;
-
-    background-color: white;
-
-    margin: 10px;
     display: flex;
+    height: 100px;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
-
-    height: 100px;
-
     border-top: solid 1px black;
+    margin-top: 20px;
 }
 
 .footer img {
-    height: 80%;
-    margin-left: 2%;
+    height: 75%;
+    padding: 10px;
 }
 
 .footer h1 {
-    margin-right: 5%;
-    font-size: 75%;
+    margin-right: 30px;
 }
+
